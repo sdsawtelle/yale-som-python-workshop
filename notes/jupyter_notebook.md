@@ -1,10 +1,6 @@
 
 
 # Intro to Jupyter
-[Installing jupyter notebook and/or jupyter lab](https://jupyter.org/install)  
-[Installing notebook extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html)
-
-
 `jupyter` is an application that provides a simple, browser-based development environment called a "notebook". Notebooks allow you to intersperse markdown/LaTex/images/HTML with executable code and they are extremely popular in the data science community for exploratory analyis and model development. Jupyter also has a set of powerful user-contributed extensions that expand the basic notebook functionality. 
 
 More recently jupyter developed a slightly more full-featured development environment called `jupyter lab` which includes file system navigation and system and python shells within the same browser-based user interface. This tool is gaining in popularity but for this workshop we will stick with the simple notebooks application which is still widely used. 
