@@ -12,8 +12,8 @@ Let's create a new `conda` virtual environment for running jupyter. First naviga
 ```
 conda create --name jupyter_server python=3.8
 conda activate jupyter_server
-conda install -c conda-forge jupyter_contrib_nbextensions
 conda install -c conda-forge notebook
+conda install -c conda-forge jupyter_contrib_nbextensions
 jupyter notebook
 ```
 
