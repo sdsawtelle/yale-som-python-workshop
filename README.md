@@ -14,4 +14,3 @@ lorem ipsum dolor
 lorem ipsum dolor
 
 # End-to-End Python Data Science Project
-lorem ipsum dolor
