@@ -7,17 +7,21 @@ More recently jupyter developed a slightly more full-featured development enviro
 
 
 ## Installation and Setup
-Let's create a new `conda` virtual environment for running jupyter. First navigate to your project folder in Anaconda Prompt. Now we can create the environment, install jupyer and the extensions package, and then run jupyter with:
+Let's create a new `conda` virtual environment for running jupyter. First navigate to your project folder in Anaconda Prompt. Now we can create the environment and then install jupyer, the extensions package, and the `nb_conda_kernels` package that will let jupyter access our conda virtual environments. We also need to tell jupyter to install the extensions for your user. All this is done with the following code snippet:
 
 ```
 conda create --name jupyter_server python=3.8
 conda activate jupyter_server
-conda install -c conda-forge notebook
-conda install -c conda-forge jupyter_contrib_nbextensions
+conda install -c conda-forge notebook jupyter_contrib_nbextensions nb_conda_kernels
+jupyter contrib nbextension install --user
+```
+
+Now in this conda environment we can run jupyter from the prompt with a single command:
+```
 jupyter notebook
 ```
 
-The last line will launch a jupyter notebook "server" which will run until you kill the process in terminal with `Ctrl + C`. Your browser should automatically open a page communicating with this "server" - but if it doesn't you can copy/paste the URL from the printout in your terminal. You should see the "homepage" for jupyter notebook, also called the notebook "dashboard". From here you can navigate your file system and create/delete/rename notebooks.
+This command will launch a jupyter notebook "server" which will run until you kill the process in terminal with `Ctrl + C`. Your browser should automatically open a page communicating with this "server" - but if it doesn't you can copy/paste the URL from the printout in your terminal. You should see the "homepage" for jupyter notebook, also called the notebook "dashboard". From here you can navigate your file system and create/delete/rename notebooks.
 
 ## Setting Up Extensions for Jupyter
 Before we create a notebook let's set up some extensions. From the homepage click on the "Nbextensions" tab in the top ribbon to see a list of all the extensions you can enable. We'll just enable two of them for now
@@ -28,18 +32,24 @@ To enable these two extensions simply check the boxes. You may also need to kill
 
 
 ## Setting Notebook Kernels (Environments)
-In jupyter the virtal environment that will be used to execute your code cells is called a kernel, and you can set it from a simple dropdown in the notebook interface. By default the kernel will be whatever environment you launched the jupyter server from. It's best practice to have one environment you always use for launching/running the jupyter server, and then to set your notebook kernels to be the specific virtual environments for your project. 
+In jupyter the virtal environment that will be used to execute your code cells is called a *kernel*, and you can set it from a simple dropdown in the notebook interface. By default the kernel will be whatever environment you launched the jupyter server from. It's best practice to have one environment you always use for launching/running the jupyter server, and then to set your notebook kernels to be the specific virtual environments for your project. 
 
-In order for jupyter to recognize conda environments as potential kernels we need the `nb_conda_kernels` package installed in our project environments. Let's install it in our data science environment now. Open a new instance of Anaconda Prompt and do
+In order for jupyter to recognize conda environments as potential kernels we need the `ipykernel` package installed in our project environments. Let's install it in our data science environment now. Open a new instance of Anaconda Prompt and do
 
 ```
 conda activate <envname>
-conda install -c conda-forge nb_conda_kernels
+conda install -c conda-forge ipykernel
 conda deactivate
 ```
 
 # Basics of Using Notebooks
-Now we're ready to start developing in notebooks. From your jupyter homepage navigate into the `/notebooks` folder and click on the `Intro_to_Jupyter_Notebooks.ipynb` notebook. It will open in a new window. The first thing we'll do is change the kernel that is set for this notebook - from the ribbon along the top choose *Kernel > Change Kernel* and select our data science environment. Now when we execute code within this notebook it will execute using that environment. Next, in the ribbon of graphic icons at the top, find and click the icon for the Table of Contents. This will create a new window displaying a hyperlinked table of contents. Walk through the notebook for an overview of the jupyter development environment.
+Now we're ready to start developing in notebooks. From your jupyter homepage navigate into the `/notebooks` folder and click on the `Intro_to_Jupyter_Notebooks.ipynb` notebook. It will open in a new window. 
+
+The first thing we'll do is change the kernel that is set for this notebook - from the ribbon along the top choose *Kernel > Change Kernel* and select our data science environment. Now when we execute code within this notebook it will execute using that environment. 
+
+Next, in the ribbon of graphic icons at the top, find and click the icon for the Table of Contents. This will create a new window displaying a hyperlinked table of contents. 
+
+Walk through the notebook for an overview of the jupyter development environment.
 
 
 
