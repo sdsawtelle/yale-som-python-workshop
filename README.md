@@ -7,7 +7,7 @@ lorem ipsum dolor
 ```
 conda create --name yale_som_workshop python=3.8
 conda activate yale_som_workshop
-conda install ipykernel pandas numpy matplotlib scikit-learn requests=2.25.1 bs4
+conda install ipykernel pandas numpy matplotlib scikit-learn requests bs4 nltk
 ```
 
 # Developing with Jupyter Notebooks

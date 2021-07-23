@@ -6,10 +6,10 @@ import time
 
 # Set the data folder and the number of papers to scrape (papers are identified by integers)
 datapath = Path(r"../data/federalist_papers")
-# num_papers = 85
-num_papers = 1
+num_papers = 85
 
 # Retrieve the contents of all the federalist papers from the law school website and save to our data folder
+Print("Scraping federalist papers 1 through 85...")
 for i in range(num_papers):
     print(i+1)
     if i < 9:
@@ -33,12 +33,17 @@ for i in range(num_papers):
     time.sleep(30)
 	
 # Get all the paper authors as a list (in the same order as the paper numbers)
+Print("Scraping author names from webpage table...")
 authors = []
 r = requests.get("https://www.congress.gov/resources/display/content/The+Federalist+Papers")
 s = BeautifulSoup(r.text, features="html.parser")
 table = s.find("table", {"class": "table table-bordered"})
 rows = table.findAll("tr")
-for row in rows[1:]:
+
+
+for i, row in enumerate(rows[1:]):
+    # print(i)
+    # print(row.findAll("td")[2].text)
     authors.append(row.findAll("td")[2].text)
 
 # Write the author list as a CSV file
